@@ -46,13 +46,13 @@ If the chat cannot open the URL, paste the job description. If it cannot save fi
 
 ## Install in a compatible agent
 
-The two folders under `skills/` follow the [Agent Skills format](https://agentskills.io/specification). After this repository is published on GitHub, the installation command will be:
+The two folders under `skills/` follow the [Agent Skills format](https://agentskills.io/specification). On macOS, Windows, or Linux, install [Node.js 22.20 or later](https://github.com/vercel-labs/skills#install-a-skill), then run this in a terminal (or PowerShell on Windows) after the repository is published:
 
 ```bash
-gh skill install OWNER/cv-agent-kit --all --agent codex --scope user
+npx skills add OWNER/cv-agent-kit -g
 ```
 
-Replace `OWNER` with the published GitHub account and `codex` with your supported agent, such as `claude-code` or `cursor`. This requires a GitHub CLI version with the `gh skill` command. The [GitHub CLI skill installer](https://cli.github.com/manual/gh_skill_install) also supports installing just one skill. From a local checkout, use `gh skill install . --all --from-local --agent codex --scope user`. If your CLI lacks `gh skill`, copy the desired skill folder to your agent's skills directory or use the chat instructions above.
+Replace `OWNER` with the published GitHub account. The installer prompts you to select the skills and agent; choose both skills and your agent. `-g` makes them available across your projects. From a local checkout, run `npx skills add . -g`. See the [installer documentation](https://github.com/vercel-labs/skills/blob/main/docs/commands.md) for noninteractive options and supported agents. If you do not want to use Node.js or a terminal, use the chat instructions above or copy the skill folders into your agent's skills directory.
 
 After installation, you can ask your agent to build your master CV or tailor a CV to a job posting. The skills also work when you invoke them explicitly by name.
 
