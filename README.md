@@ -49,10 +49,10 @@ If the chat cannot open the URL, paste the job description. If it cannot save fi
 The two folders under `skills/` follow the [Agent Skills format](https://agentskills.io/specification). On macOS, Windows, or Linux, install [Node.js 22.20 or later](https://github.com/vercel-labs/skills#install-a-skill), then run this in a terminal (or PowerShell on Windows) after the repository is published:
 
 ```bash
-npx skills add OWNER/cv-agent-kit -g
+npx skills add Jorge-AI700/cv-agent-kit -g
 ```
 
-Replace `OWNER` with the published GitHub account. The installer prompts you to select the skills and agent; choose both skills and your agent. `-g` makes them available across your projects. From a local checkout, run `npx skills add . -g`. See the [installer documentation](https://github.com/vercel-labs/skills/blob/main/docs/commands.md) for noninteractive options and supported agents. If you do not want to use Node.js or a terminal, use the chat instructions above or copy the skill folders into your agent's skills directory.
+The installer prompts you to select the skills and agent; choose both skills and your agent. `-g` makes them available across your projects. From a local checkout, run `npx skills add . -g`. See the [installer documentation](https://github.com/vercel-labs/skills/blob/main/docs/commands.md) for noninteractive options and supported agents. If you do not want to use Node.js or a terminal, use the chat instructions above or copy the skill folders into your agent's skills directory.
 
 After installation, you can ask your agent to build your master CV or tailor a CV to a job posting. The skills also work when you invoke them explicitly by name.
 
