@@ -19,6 +19,7 @@
 
 - Ask Maya whether she has any unrecorded B2B software support or CRM experience.
 - Confirm the café remake figures before using an exact percentage in an application.
-- Add contact details only if Maya wants them included in the application CV.
+- The tailored CV includes a fictional contact line so the rendered example has a complete header. In a real application, add contact details only if the person wants them on the CV.
+- Languages from the master CV application facts appear on the tailored CV. Work authorization can be reused on forms; salary expectation was not recorded.
 
 The tailored CV emphasizes transferable experience while leaving direct B2B software experience and CRM use unclaimed.
