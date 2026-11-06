@@ -36,6 +36,16 @@ Harbor Café was a busy neighborhood café with an eight-person shift team. Maya
 - **Coordination:** Scheduled 15 library volunteers and managed changes.
 - **Customer communication:** Resolved complaints face to face at Harbor Café.
 
+## Application facts
+
+Maya chose to record the following for application forms. They are not a substitute for role evidence.
+
+- **Work authorization:** Authorized to work in Spain; no visa sponsorship required.
+- **Earliest start / notice:** Available with two weeks' notice.
+- **Languages:** English (fluent), Spanish (conversational).
+- **Relocation:** Open to remote roles based in Spain.
+- **Salary expectation:** Not recorded; Maya preferred to discuss this later if asked.
+
 ## Open questions
 
 - Confirm the exact order-remake figures and whether the 20% estimate can be used externally.

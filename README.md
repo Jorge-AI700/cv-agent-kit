@@ -1,10 +1,29 @@
 # CV Agent Kit
 
-**Your experience is bigger than the CV you last sent.**
+**Your experience is bigger than the CV or resume you last sent.**
 
-A CV is a selection of your experience, made for a particular moment and role. It leaves out projects, decisions, and results that may matter for the next opportunity. When you change direction, those missing details make transferable skills especially hard to show. You may have led people, improved a process, or solved customer problems without ever having held the title in a new job posting.
+Two complementary [Agent Skills](https://agentskills.io/specification) that help you build a thorough master career record, then tailor a truthful CV or resume for a specific job — including a clean one-page PDF when your environment can render it.
 
-One fixed CV cannot give every part of that experience the space it deserves. Rewriting it for each application often means trying to recover useful examples from memory.
+## Quick start
+
+Install [Node.js 22.20 or later](https://github.com/vercel-labs/skills#install-a-skill), then run:
+
+```bash
+npx skills add Jorge-AI700/cv-agent-kit -g
+```
+
+The installer prompts you to select the skills and agent; choose both skills and your agent. `-g` makes them available across your projects. Then ask:
+
+1. “Build my master CV. Start by asking about my existing CV or career timeline.”
+2. “Create a CV for this job from my master CV.” Paste or attach the posting, and your saved master CV if the chat does not already have it.
+
+![Rendered preview of the fictional Maya Chen CV](examples/fictional-tailored-cv.png)
+
+The preview above is the fictional example CV in `examples/`, rendered by `skills/job-cv-builder/scripts/render_cv.py`. Maya is early in her career, so the page is not completely filled; that is expected for this example.
+
+A CV or resume is a selection of your experience, made for a particular moment and role. It leaves out projects, decisions, and results that may matter for the next opportunity. When you change direction, those missing details make transferable skills especially hard to show. You may have led people, improved a process, or solved customer problems without ever having held the title in a new job posting.
+
+One fixed document cannot give every part of that experience the space it deserves. Rewriting it for each application often means trying to recover useful examples from memory.
 
 CV Agent Kit works in two stages:
 
@@ -31,7 +50,7 @@ That is why the master CV keeps more detail than a conventional CV: it preserves
 | Step | Output |
 | --- | --- |
 | Career interview | A detailed `master-cv.md` that you can keep and update. |
-| Job application | A tailored `cv.md` and `application-notes.md` showing the job requirements, supporting evidence, and unanswered questions. |
+| Job application | A tailored `cv.md` and `application-notes.md` showing the job requirements, supporting evidence, and unanswered questions. When rendering tools are available, also a `Firstname-Lastname-CV-Company.pdf`. |
 
 The master CV is yours. Keep it somewhere private and bring it to a later conversation when you want to apply for a job. This repository contains only the instructions and fictional examples; it does not store your career information.
 
@@ -46,15 +65,27 @@ If the chat cannot open the URL, paste the job description. If it cannot save fi
 
 ## Install in a compatible agent
 
-The two folders under `skills/` follow the [Agent Skills format](https://agentskills.io/specification). On macOS, Windows, or Linux, install [Node.js 22.20 or later](https://github.com/vercel-labs/skills#install-a-skill), then run this in a terminal (or PowerShell on Windows) after the repository is published:
-
-```bash
-npx skills add Jorge-AI700/cv-agent-kit -g
-```
+The two folders under `skills/` follow the [Agent Skills format](https://agentskills.io/specification). On macOS, Windows, or Linux, install [Node.js 22.20 or later](https://github.com/vercel-labs/skills#install-a-skill), then run the Quick start command above.
 
 The installer prompts you to select the skills and agent; choose both skills and your agent. `-g` makes them available across your projects. From a local checkout, run `npx skills add . -g`. See the [installer documentation](https://github.com/vercel-labs/skills/blob/main/docs/commands.md) for noninteractive options and supported agents. If you do not want to use Node.js or a terminal, use the chat instructions above or copy the skill folders into your agent's skills directory.
 
-After installation, you can ask your agent to build your master CV or tailor a CV to a job posting. The skills also work when you invoke them explicitly by name.
+After installation, you can ask your agent to build your master CV or tailor a CV or resume to a job posting. The skills also work when you invoke them explicitly by name.
+
+## Render a PDF
+
+The job skill includes a small Python renderer, `skills/job-cv-builder/scripts/render_cv.py`, that turns tailored Markdown into DOCX and PDF:
+
+- `pip install python-docx`
+- LibreOffice (`soffice`) for PDF export
+- `poppler-utils` (`pdfinfo`, `pdftoppm`) for page-count and preview checks
+
+If those tools are not available, Markdown remains the portable default. When `python-docx` is installed but LibreOffice is missing, the script writes the DOCX and says that no PDF was created.
+
+```bash
+python skills/job-cv-builder/scripts/render_cv.py examples/fictional-tailored-cv.md --check
+```
+
+Use `--page-size letter` for US Letter. Use `--font-size` to adjust the body size during visual checks (about 9.5 to 10.5pt).
 
 ## Principles
 
@@ -64,6 +95,10 @@ After installation, you can ask your agent to build your master CV or tailor a C
 - **User-owned records.** You choose where to keep your master CV and application files. Your chat or agent provider's data handling rules still apply to anything you share with it.
 
 Follow a fictional handoff from the [master CV](examples/fictional-master-cv.md) and [job posting](examples/fictional-job.md) to a [tailored CV](examples/fictional-tailored-cv.md) and [application notes](examples/fictional-application-notes.md). The candidate has transferable training and customer communication experience, while direct B2B software experience and CRM use remain gaps.
+
+## Contributing
+
+Issues and pull requests are welcome. Please keep examples fictional — do not add real personal data — and preserve the kit's evidence-only approach to tailoring.
 
 ## License
 

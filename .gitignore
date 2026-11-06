@@ -4,3 +4,9 @@ applications/
 private/
 
 .DS_Store
+
+__pycache__/
+*.pyc
+
+# Local DOCX renders of the example (the committed preview is the PDF and PNG)
+examples/*.docx
