@@ -35,7 +35,12 @@ Ask targeted follow-ups when a high-priority match may exist but the master reco
 ## Draft and verify
 
 - Select the most relevant factual accomplishments and responsibilities. Write a clear profile, skills supported by experience, and focused experience entries. Keep accurate job titles, employers, dates, qualifications, and measurable results. Use the posting's terminology only where it truthfully describes the person's work.
-- Choose length and structure for the user's career stage, target market, and stated preference. Keep the CV readable with conventional headings and concise bullets. Do not force a fixed page count or add keywords without evidence.
+- When formatting `cv.md`, use the clean format compatible with `cv-pdf-export` for one-page rendering:
+  - Header lines before the first `##`: `# Full Name` (centered name), followed by contact line and status/availability line.
+  - Section headings: `## Section Name` (e.g. `## Profile`, `## Experience`, `## Education`, `## Skills & languages`).
+  - Experience / Education entries: `### Job Title — Organisation | City, Country | Dates` (use em dash `—` or en dash `–`).
+  - Optional context: a single line wrapped in `_underscores_` directly below an entry heading.
+  - Bullets: `- ` with the core metric or result in `**bold**`.
 - Before delivering, check every claim against the master CV or a new user-confirmed answer. Check chronology, numbers, scope, language, and whether inference or uncertainty has been presented as fact. Remove placeholders from the CV; keep unresolved issues in the notes.
 
-Create `cv.md` and `application-notes.md` in a private location chosen by the user when files can be written. The notes should contain a short job brief, the important requirement-to-evidence matches, gaps, and any choices or assumptions that may need review. In a chat without file access, return both documents as complete, clearly labeled Markdown so the user can save them. Provide a PDF or DOCX only when requested and the environment supports it.
+Create `cv.md` and `application-notes.md` in a private location chosen by the user when files can be written. The notes should contain a short job brief, the important requirement-to-evidence matches, gaps, and any choices or assumptions that may need review. In a chat without file access, return both documents as complete, clearly labeled Markdown so the user can save them. If a PDF or DOCX is requested and supported by the environment, use the `cv-pdf-export` skill to render it.
