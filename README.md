@@ -43,7 +43,9 @@ You can use the toolkit in a chat that accepts text, even when it cannot install
 
 1. Copy or attach [the master CV instructions](skills/master-cv-builder/SKILL.md). Ask: “Follow these instructions to build my master CV. Start by asking about my existing CV or career timeline.” Save the complete Markdown record the agent returns.
 2. For an application, copy or attach [the job CV instructions](skills/job-cv-builder/SKILL.md), provide your saved master CV, and paste the job description or its URL. Ask: “Use these instructions to create a CV for this job from my master CV.”
-3. For PDF/DOCX rendering in an environment with bash/Python, use [the CV PDF export instructions](skills/cv-pdf-export/SKILL.md).
+3. For PDF/DOCX rendering:
+   - If your web chat has a Python code sandbox (e.g. ChatGPT Advanced Data Analysis), attach or paste [the render script](skills/cv-pdf-export/scripts/render_cv.py) and ask it to run on your `cv.md` to get direct `.docx` and `.pdf` download links.
+   - In a terminal agent or local setup, follow [the CV PDF export instructions](skills/cv-pdf-export/SKILL.md).
 
 If the chat cannot open the URL, paste the job description. If it cannot save files, ask it to return the complete Markdown for you to save. A chat may not retain your master CV between sessions, so provide it again when needed.
 

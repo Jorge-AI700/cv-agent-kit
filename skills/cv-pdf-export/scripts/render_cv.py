@@ -106,13 +106,23 @@ def main():
     soffice = 'soffice'
     if sys.platform == 'darwin' and not subprocess.run(['which', 'soffice'], capture_output=True).stdout:
         soffice = '/Applications/LibreOffice.app/Contents/MacOS/soffice'
-    subprocess.run([soffice, '--headless', '--convert-to', 'pdf', '--outdir', str(out), str(docx_path)], check=True, capture_output=True)
-    pdf = out / f'{stem}.pdf'
+    pdf = None
     pages = None
     try:
-        info = subprocess.run(['pdfinfo', str(pdf)], capture_output=True, text=True).stdout
-        m = re.search(r'Pages:\s+(\d+)', info); pages = int(m.group(1)) if m else None
-    except FileNotFoundError: pass
-    print(f'DOCX {docx_path}\nPDF  {pdf}' + (f'\nPAGES {pages}' if pages else ''))
+        subprocess.run([soffice, '--headless', '--convert-to', 'pdf', '--outdir', str(out), str(docx_path)], check=True, capture_output=True)
+        pdf = out / f'{stem}.pdf'
+        try:
+            info = subprocess.run(['pdfinfo', str(pdf)], capture_output=True, text=True).stdout
+            m = re.search(r'Pages:\s+(\d+)', info); pages = int(m.group(1)) if m else None
+        except FileNotFoundError: pass
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        pass
+
+    out_msg = f'DOCX {docx_path}'
+    if pdf and pdf.exists():
+        out_msg += f'\nPDF  {pdf}' + (f'\nPAGES {pages}' if pages else '')
+    else:
+        out_msg += '\n(Notice: LibreOffice not found or failed; DOCX generated. Open DOCX or install LibreOffice for PDF)'
+    print(out_msg)
 
 if __name__ == '__main__': main()

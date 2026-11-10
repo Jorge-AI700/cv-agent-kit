@@ -94,8 +94,11 @@ _Optional single-line italic context describing company focus, product domain, o
 
 ## Environment & Fallback Strategy
 - **If terminal tools and LibreOffice are available**: Run the full pipeline (Draft `cv.md` → Run `render_cv.py` → Visually check 1-page PDF → Deliver PDF path and summary).
-- **If LibreOffice is not installed**: The script will still generate the `.docx` file. Deliver the `.docx` and `.md` files and inform the user.
-- **If running in a chat-only environment (no bash/python)**: Generate the complete, valid `cv.md` and provide the exact shell command so the user can run `render_cv.py` locally.
+- **If running in a Web Chat with a Python Sandbox (e.g. ChatGPT Advanced Data Analysis / Code Interpreter)**:
+  - Run `render_cv.py` directly in your Python sandbox using the drafted `cv.md`.
+  - Deliver the generated `.docx` download link (and `.pdf` if the container has LibreOffice).
+- **If LibreOffice is not installed**: The script will still generate the styled `.docx` file. Deliver the `.docx` and `.md` files and inform the user they can open the `.docx` in Word/Google Docs and export to PDF.
+- **If running in a pure text chat (no bash/python sandbox)**: Generate the complete, valid `cv.md` and provide the exact shell command so the user can run `render_cv.py` locally.
 
 ---
 

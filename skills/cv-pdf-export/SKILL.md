@@ -53,7 +53,14 @@ python3 skills/cv-pdf-export/scripts/render_cv.py path/to/cv.md --out path/to/ou
 
 Options: `--size 10` sets body font size (default 10; use 9.5 only if needed to stay on one page, never below 9).
 
-The script prints the DOCX and PDF paths and the page count.
+The script prints the DOCX and PDF paths and the page count. If LibreOffice is not installed, it cleanly exports the DOCX without crashing.
+
+## Web Chat Sandboxes (ChatGPT, Claude, etc.)
+
+If you are an agent running inside a web chat with a Python execution environment:
+1. Run `render_cv.py` directly inside your sandbox on the generated `cv.md`.
+2. Provide the generated `.docx` (and `.pdf` if LibreOffice is available in the container) as a file download link in chat.
+3. Users who download the `.docx` get the full 1-page layout, exact tab stops, margins, and styling, and can save as PDF directly from Word or Google Docs.
 
 ## Check before delivering
 
