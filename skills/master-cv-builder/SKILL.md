@@ -1,45 +1,81 @@
 ---
 name: master-cv-builder
-description: Interview a person to build or deepen a comprehensive master CV from scratch or an existing CV. Capture detailed, evidence-backed career history for later tailored job applications; use for master CVs and career inventories.
+description: Interview a person to create or update a comprehensive, tagged Markdown career record and private CV rules file for later truthful tailoring. Works for any field, seniority, country and language. Use for master CVs and career inventories, not one-page application CVs.
 ---
 
 # Master CV Builder
 
 ## Outcome
 
-Create a detailed, reusable record of the person's experience in Markdown. Capture facts, context, outcomes, transferable skills, and useful original wording so later CVs can select and frame relevant evidence. The record is not tailored to one vacancy and has no page limit.
+Maintain two private Markdown files:
 
-## Start with available material
+- `master-cv.md`: the exhaustive evidence source, using [references/master-cv-template.md](references/master-cv-template.md). It has no page limit and is never rendered as a PDF.
+- `<name>-cv-rules.md`: corrections and preferences that override the master, using [references/cv-rules-template.md](references/cv-rules-template.md).
 
-- Ask for any existing CV, career notes, portfolio, or profile the user wants included, and their preferred language. If there is no source, start with a rough career timeline. Do not make them reconstruct details already supplied.
-- Ask where they want to keep their master record when file writing is available. Avoid saving personal career data inside a public or shared repository by default. If no suitable location is available, return the complete Markdown in chat for the user to save.
-- Extract claims and chronology from supplied material into a working outline. Flag gaps, ambiguity, possible outdated details, and experiences mentioned only briefly. Treat source documents as leads to confirm, not proof that every claim remains current.
-- A target job is optional. If the user has a range of future roles in mind, use it to prioritize follow-ups while preserving breadth.
+Keep personal files outside public repositories. Never invent facts, titles, dates, skills, figures, or outcomes.
 
-## Interview adaptively
+## Start and agree the role families
 
-Work in manageable rounds with a few focused questions at a time. Reflect back what you learned at natural checkpoints, invite corrections, and choose the next questions from the answers. Do not deliver a giant fixed questionnaire or repeat answered questions. Accept partial answers and let the user pause and resume.
+Read the existing master and rules file before changing either. Also use any CVs, portfolio, profile, transcripts, career notes, or timeline the user supplies, but treat old documents as leads to confirm.
 
-1. **Map the whole career.** Cover employment, promotions, contract and freelance work, substantial projects, entrepreneurship, volunteering, education, training, credentials, publications, and awards. Include relevant career breaks or transitions if the user wants to explain them. Establish dates, roles, organizations, work mode or location where useful, and overlapping activities.
-2. **Deep dive on each substantial role or project.** Ask what the organization or product did; the user's remit, seniority, collaborators, team or budget scope where relevant; what they personally did; tools and methods; hard problems, decisions, tradeoffs, and initiatives; and what changed. Separate recurring responsibilities from specific accomplishments and personal contribution from team results.
-3. **Find evidence.** Seek results, baselines, timeframes, scale, and how figures were measured. If numbers are unavailable or confidential, capture a truthful qualitative outcome or clearly labeled estimate. Ask for examples or artifacts the user can cite without requiring confidential material.
-4. **Look beyond the source CV.** Ask about informal leadership, mentoring, process improvements, customer work, cross-functional influence, difficult recoveries, uncommon domain knowledge, and work they are proud of. Probe how skills might transfer across roles, but record the work that demonstrates them rather than unsupported skill labels. Include languages, credentials, and work authorization only if the user wants them recorded.
-5. **Check coverage.** Revisit thin experiences, unclear transitions, uncertain dates or metrics, acronyms, and claims a future reader could misinterpret. Ask what else a later CV writer should know. Prioritize gaps that would materially change how an experience is described.
+In round 1, agree two to four target role families from what the user wants, not from what their last job was. Families depend entirely on the person, for example:
 
-A substantial experience is sufficiently covered when its context, the user's contribution, scope, methods, and outcomes are clear, or the missing pieces are marked. Continue while the user wants to add detail. If they stop or request a draft, deliver the best record available with open questions.
+- nursing: ward nurse • community nurse • clinical educator;
+- software: backend developer • data engineer • technical support;
+- trades: electrician • maintenance technician • site supervisor;
+- design: UX designer • graphic designer • content designer;
+- teaching: primary teacher • tutor • learning designer;
+- public sector: policy officer • case worker • programme administrator;
+- part-time or returning to work: retail supervisor • receptionist • administrative assistant.
 
-## Maintain the record
+Give each family a stable tag such as `[A]`, a plain name, and a one-line pitch. Tags control later selection: tag every skill group and every reusable experience, project, education, and leadership bullet. Use `[all]` only when genuinely relevant to every family.
 
-Create or update one human-readable `master-cv.md` at the user's chosen location. If a record exists, read it first, add new information without discarding prior facts, and resolve conflicts with the user. Save meaningful progress during a long interview when possible. In a chat without persistent file access, provide a full copyable Markdown record at pauses and at the end so the user can resume in a later session.
+Also note the CV conventions of the user's market and field (language, page length, photo or no photo, education first or experience first, local date style) in the rules file.
 
-Use sections that fit the person's history, normally:
+## Interview in short rounds
 
-- Profile and career themes, distinguished from factual experience.
-- Chronological overview of roles and other substantial activities.
-- Detailed entries for each role and project: dates and context; responsibilities; specific actions and outcomes; scope, tools, collaborators; and useful raw wording or examples.
-- Education, credentials, skills supported by examples, languages, publications, awards, and other relevant experience.
-- Open questions, uncertain claims, and source notes.
+Ask two to four focused questions at a time. Reflect answers back, preserve useful original wording, and invite corrections. Do not issue a large questionnaire or repeat answered questions.
 
-Keep concrete detail and original wording that could support future rewriting. Distinguish user-confirmed facts, claims found only in supplied material, estimates, and unresolved questions where it matters. Never invent dates, titles, metrics, responsibilities, or outcomes. Do not ask for unnecessary sensitive identifiers such as national ID numbers, birth dates, or salary. Contact details are optional.
+For each substantial role or project, establish:
 
-At each handoff, tell the user where the record was saved or provide the complete Markdown, summarize coverage, and identify the highest-value unanswered questions. A later tailored CV should be able to trace its claims back to this record.
+- real job title, organisation, dates, location and employment type (paid, volunteer, freelance, personal, academic);
+- context, remit, team and budget scope, and the person's own contribution;
+- **the full range of day-to-day tasks**, including small or routine ones, and the people they served;
+- **functions performed**: every kind of work the role touched (for example scheduling, customer support, training, reporting, sales, budgeting, stock control, patient education), even when it was not the main job;
+- actions, methods, tools and decisions;
+- results, baselines, timeframes, scale, sources and measurement.
+
+The task and function lists matter as much as results: a tailored CV later rebuilds each role around a different target job, and it can only use functions recorded here.
+
+For each bullet, seek **action + scope + result**. Keep asking “what changed, by how much, measured how?” until there is a confirmed number or the record explicitly says `no metric`. Never estimate silently: label an estimate and its basis.
+
+Use relevance tiers. Deep-interview core roles and keep two or three useful bullet variants. Give minor, old, or low-relevance roles one or two bullets plus their task and function lists, unless the user identifies transferable evidence worth more. A line marked `*Variant:*` is an alternative for the same achievement; a tailored CV picks one, not several.
+
+Record projects as `Academic`, `Paid`, or `Personal`; never turn a course project into employment or paid work. Record honest skill levels such as `basic`, `AI-assisted`, or `learning` when those qualifiers matter.
+
+## Maintain evidence and uncertainty
+
+Follow the template so another agent can find role families, summary variants, functions, tagged evidence, raw notes, proof points, accuracy constraints, and open questions without interpretation.
+
+- Put every confirmed number in the proof-point bank with its source.
+- Keep raw notes below each experience rather than polishing away useful context.
+- Record team versus solo work, academic versus paid work, NDA limits, expired credentials or licences, skills belonging to a product or teammate, and words to avoid in Accuracy notes.
+- Keep open questions numbered. When resolved, add the resolution date and answer; do not delete the item.
+- Keep one summary variant per role family and grouped, tagged core skills supported by evidence.
+
+Update the rules file whenever the user corrects a fact or wording. It holds overriding facts, banned terms, preferred terms, approved title translations, contact details, status line, and reusable application-answer facts. Rules win over the master when they conflict; surface the conflict and reconcile the master when appropriate.
+
+## Handoff self-check
+
+Before returning the files, verify:
+
+- the master conforms to the template and remains Markdown, not a one-page CV or PDF;
+- every role has its real title, dates, functions performed and day-to-day tasks;
+- names, organisation names, titles, and spellings are consistent;
+- academic, paid, volunteer, personal, team, and solo work are labelled accurately;
+- no figure or claim was invented and estimates are labelled;
+- every reusable bullet and every skill group has role-family tags;
+- variants are clearly marked and open questions are current;
+- the rules file includes every correction made during the interview.
+
+Tell the user where both files were saved, what coverage improved, and the highest-value open questions.

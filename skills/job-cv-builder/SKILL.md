@@ -1,46 +1,71 @@
 ---
 name: job-cv-builder
-description: Create a truthful CV tailored to a specific job posting or URL by matching its requirements to evidence in a master CV. Use when a person has a master CV and wants a job-specific application CV.
+description: Create a truthful one-page CV and application notes for a specific live job posting, rebuilding each relevant experience around the target role from a tagged master CV and private rules file. Works for any field, country and language.
 ---
 
 # Job CV Builder
 
-## Outcome
+## Outcome and sources
 
-Produce a concise CV for one job using evidence from the user's master CV, plus separate application notes explaining the match and unresolved gaps. Tailoring changes emphasis and wording where the facts support it; it does not create new experience.
+Produce private `cv.md` and `application-notes.md` for one job. Load the candidate's rules file first, then the master CV. These are the only candidate fact sources: never copy facts from older tailored CVs. Rules override conflicts. If the master has no role-family tags or no functions/task lists, work from what is there and recommend a `master-cv-builder` update.
 
-## Gather the two sources
+Obtain the full posting or URL. Check that it is still live and its deadline has not passed before tailoring. Record employer, role, location, language, source URL, and access date in the notes. Ask if the location is ambiguous. If a page is inaccessible or requires login, request pasted text rather than guessing.
 
-- Obtain the master CV and the job description or URL. If the master CV is missing, ask the user to provide it or build it first. If the job page is inaccessible, incomplete, or requires a login, ask for pasted text. Do not guess the contents of a URL.
-- Note the employer, role, location, language, source URL if any, and date accessed when available. Job postings can change; preserve a concise summary of the version used in application notes.
-- Ask for any constraints that materially affect the result, such as target country, language, length, or file type, only when they cannot be inferred. Markdown is the portable default; export to another format when requested and supported.
+## Analyse and map before writing
 
-## Analyze the job
+Classify the posting into one of the candidate's role families and start from that family's summary variant. Extract responsibilities, outcomes, domain, seniority, tools, location, and eligibility constraints. Classify each item as explicit requirement, explicit preference, inferred priority (labelled), or unknown.
 
-Extract the role's responsibilities, outcomes, domain, seniority, tools, and eligibility constraints. Classify requirements by what the posting actually says:
+Map each important item to the strongest evidence in the master: tagged bullets, functions performed, day-to-day tasks, and raw notes. Record source entry, personal contribution, result, recency, and uncertainty. Choose one variant per achievement.
 
-1. **Explicit requirements:** Qualifications or conditions described as required, essential, or mandatory.
-2. **Explicit preferences:** Qualifications described as preferred, desirable, or advantageous.
-3. **Inferred priorities:** Likely priorities suggested by repeated themes, prominent responsibilities, or company context. Label these as inference, not employer requirements.
-4. **Unknowns:** Ambiguous or missing details that affect how the CV should be framed.
+Ask targeted follow-ups only when a high-priority match may exist. Treat answers as facts only after confirmation. Put every unproven must-have and material ambiguity in `application-notes.md`; never place it on the CV.
 
-Prioritize by explicitness, centrality to the work, and specificity. Avoid an opaque fit percentage or treating every keyword as equally important.
+## Rebuild each experience around the target role
 
-## Map evidence before writing
+The master is a source of evidence, not a set of fixed descriptions. For each role shown, rewrite it for this job:
 
-For each important requirement or priority, find the strongest relevant examples in the master CV. Note the source role or project, the person's own contribution, outcome, recency where relevant, and any uncertainty. Transferable experience may support a competency without being identical to direct experience: describe the actual work and do not imply the person held a title, used a tool, or served a domain they did not.
+1. **Title line.** Keep the real job title, employer, and dates exactly as in the master (or an approved translation from the rules). When the real title hides the relevant work, add the target function in brackets: `Founder (Business Development) — Organisation`, `Shift Supervisor (Training) — Organisation`, `Teaching Assistant (Data & Reporting) — Organisation`. Never replace the title with the target job title.
+2. **Context line.** Rewrite it to describe the part of the role that matters for this job.
+3. **Bullets.** Rewrite them in the posting's vocabulary, drawing on every relevant function and task recorded for that role, not only its headline bullets. Lead with the work closest to the target role.
+4. **Selection.** Choose which roles to show and in what order based on relevance to this job, not chronology alone. A minor role with strong transferable evidence can earn more space than a senior but irrelevant one.
 
-Ask targeted follow-ups when a high-priority match may exist but the master record lacks detail. Treat answers as candidate facts only after the user confirms them. Keep unsupported requirements visible as gaps; never fill them with job-posting language or invented claims. If useful new facts emerge, offer to add them to the master record, keeping the job posting separate from the person's history.
+Limits: every reframed bullet must trace to a specific master fact (bullet, task, function, raw note, or rule). Never invent tasks, tools, clients, scale, results, or seniority, and never imply a function the master does not record. If the target role needs evidence the master lacks, it is a gap for the notes.
 
-## Draft and verify
+Example: a master records `Founder — small online shop` with functions `supplier sourcing • customer support • social media • bookkeeping`. For a customer-support posting it becomes `Founder (Customer Support) — Shop`, with bullets about answering customer messages, handling returns, and writing help pages, all taken from the recorded tasks. For a bookkeeping posting the same role becomes `Founder (Bookkeeping) — Shop`, with invoicing and reconciliation bullets.
 
-- Select the most relevant factual accomplishments and responsibilities. Write a clear profile, skills supported by experience, and focused experience entries. Keep accurate job titles, employers, dates, qualifications, and measurable results. Use the posting's terminology only where it truthfully describes the person's work.
-- When formatting `cv.md`, use the clean format compatible with `cv-pdf-export` for one-page rendering:
-  - Header lines before the first `##`: `# Full Name` (centered name), followed by contact line and status/availability line.
-  - Section headings: `## Section Name` (e.g. `## Profile`, `## Experience`, `## Education`, `## Skills & languages`).
-  - Experience / Education entries: `### Job Title — Organisation | City, Country | Dates` (use em dash `—` or en dash `–`).
-  - Optional context: a single line wrapped in `_underscores_` directly below an entry heading.
-  - Bullets: `- ` with the core metric or result in `**bold**`.
-- Before delivering, check every claim against the master CV or a new user-confirmed answer. Check chronology, numbers, scope, language, and whether inference or uncertainty has been presented as fact. Remove placeholders from the CV; keep unresolved issues in the notes.
+## Write the tailored files
 
-Create `cv.md` and `application-notes.md` in a private location chosen by the user when files can be written. The notes should contain a short job brief, the important requirement-to-evidence matches, gaps, and any choices or assumptions that may need review. In a chat without file access, return both documents as complete, clearly labeled Markdown so the user can save them. If a PDF or DOCX is requested and supported by the environment, use the `cv-pdf-export` skill to render it.
+Use the posting's language, local job titles, and local date style; use title translations from the rules file. Follow the candidate's market conventions recorded in the rules (section order, education first for graduate or academic roles, and so on). The profile is two or three lines: posting title/role + strongest proof point + one differentiator. No generic adjectives.
+
+Mirror exact posting keywords only where truthful: place them in the bullet that proves them and, when useful, in Skills. Do not stuff or repeat keywords. Put the posting's tools first in Skills and remove irrelevant ones.
+
+Budget one A4 page: give the most relevant role about three or four bullets, others one or two, and the oldest one. Prefer recent, direct evidence. Use the renderer-compatible Markdown described by `cv-pdf-export`:
+
+```markdown
+# Full Name
+Contact line from rules
+Status line from rules
+
+## Profile
+Two or three concise lines with **one key proof point**.
+
+## Experience
+### Real Title (Target Function) — Organisation | Location | Dates
+_One-line context written for this job._
+- Action, scope and **result**, in the posting's vocabulary.
+
+## Education
+### Qualification — Institution | Location | Dates
+
+## Skills & languages
+**Relevant group:** item • item
+```
+
+Create `application-notes.md` with: posting snapshot and liveness check; role-family choice; requirement-to-evidence map; how each role was reframed and which master facts each rewritten bullet comes from; posting keywords used; gaps not claimed; assumptions; and interview angles. Offer to write newly confirmed facts back to the master after review.
+
+## QA, render, and deliver
+
+1. Run `scripts/qa_check.py cv.md --rules path/to/rules.md --master path/to/master-cv.md`, adding `--extra-text` for cover letters or application answers. It fails on banned terms and on entry titles that differ from the master (a `(Function)` suffix and rules-file translations are allowed), and warns about numbers not found in the master or rules. Resolve every error and investigate every warning.
+2. Check by hand that every reframed bullet traces to a master fact, contacts and status match the rules file, dates match the master, and language and date style match the posting.
+3. Render with `cv-pdf-export`. Use `<First>-<Last>-<Company>-<Role>-CV.pdf` unless the rules specify another pattern.
+4. Verify exactly one A4 page and inspect the preview for alignment, clipping, and reasonable page fill. Trim weak evidence before reducing font size.
+5. Hand the CV, application notes, PDF, and DOCX to the user. Never apply, submit, email, or upload from this skill.

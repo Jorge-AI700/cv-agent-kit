@@ -21,4 +21,3 @@ Help new customers get started, respond clearly to questions, coordinate follow-
 
 - Experience using a CRM.
 - Experience measuring customer onboarding or support outcomes.
-

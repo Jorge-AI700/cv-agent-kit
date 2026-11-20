@@ -1,9 +1,86 @@
-# Personal career records created while trying the skills locally
-master-cv.md
-applications/
+# cv-agent-kit .gitignore
+# Keep skills, fictional examples, docs, and scripts trackable.
+# Ignore personal records, generated renders, secrets, and local scratch.
+
+# ---------------------------------------------------------------------------
+# Personal working files (anywhere except examples/)
+# ---------------------------------------------------------------------------
 private/
+applications/
+transcripts/
 
-.DS_Store
+# Master CVs and personal rules, then re-include the fictional copies
+master-cv.md
+!examples/**/master-cv.md
 
+*-cv-rules.md
+rules.md
+!examples/**/*-cv-rules.md
+!examples/**/rules.md
+
+# Application trackers (CSV), then re-include example trackers
+*.csv
+!examples/**/*.csv
+
+# Tailored-CV working folders outside examples
+tailored/
+!examples/**/tailored/
+!examples/**/tailored/**
+
+# ---------------------------------------------------------------------------
+# Generated output and binary renders
+# ---------------------------------------------------------------------------
+output/
+render/
+renders/
+render-check/
+sample-render/
+
+*.pdf
+*.docx
+*.png
+~$*
+
+# ---------------------------------------------------------------------------
+# Secrets and credentials
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*
+*secrets*
+auth.json
+secrets.json
+credentials.json
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# ---------------------------------------------------------------------------
+# OS, editors, logs, and agent/codex scratch
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+*.log
+
+.codex/
+.agents/
+.agent-scratch/
+*.bak

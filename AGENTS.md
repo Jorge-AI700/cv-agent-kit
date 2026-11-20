@@ -12,9 +12,10 @@ This repository contains a modular toolkit based on the [Agent Skills specificat
 - **When to use**: User wants to start a career inventory, document past experience, or update their master career record.
 - **How to execute**:
   1. Do not ask for a massive questionnaire at once. Conduct an adaptive interview in rounds of 2–4 focused questions.
-  2. Extract concrete evidence: baseline, actions, methodologies, tools, team scope, timeframes, and measurable results.
-  3. Keep original phrasing and note uncertainties. Never invent metrics or titles.
-  4. Save or update the record as `master-cv.md` (or in `private/master-cv.md` if the user works in this repo).
+  2. In round 1, agree 2–4 role families; tag every reusable bullet and skill group.
+  3. Extract concrete evidence: real title and dates, functions performed, day-to-day tasks, baseline, actions, methods, tools, team scope, timeframes, measured results, and sources. Never invent metrics or titles.
+  4. Use `skills/master-cv-builder/references/master-cv-template.md`; maintain a private rules file from `cv-rules-template.md` for corrections and preferences.
+  5. Save or update `master-cv.md` and `<name>-cv-rules.md` privately. The master stays Markdown and is never rendered as a PDF.
 
 ---
 
@@ -22,11 +23,14 @@ This repository contains a modular toolkit based on the [Agent Skills specificat
 - **Reference**: `skills/job-cv-builder/SKILL.md`
 - **When to use**: User has a target job posting and wants a tailored CV and application notes.
 - **How to execute**:
-  1. **Inputs required**: The user's master CV and the job description (text or URL).
-  2. **Analyze the job**: Extract explicit requirements, preferred qualifications, and inferred team priorities.
-  3. **Map evidence**: Pull strictly truthful matches from the master CV. Unmatched requirements remain documented as gaps in `application-notes.md`.
-  4. **Output 1 (`application-notes.md`)**: A brief detailing requirement-to-evidence mappings, identified gaps, and interview prep angles.
-  5. **Output 2 (`cv.md`)**: A tailored CV formatted **strictly** per the Markdown Specification below so it can be rendered to PDF without syntax errors.
+  1. **Inputs required**: The user's rules file, master CV, and job description (text or URL).
+  2. **Load rules → master**: Facts come only from those sources; rules override conflicts. Never use older tailored CVs as evidence.
+  3. **Analyze the job**: Check it is live, resolve ambiguous location, and extract explicit requirements, preferences, and inferred priorities.
+  4. **Map evidence**: Pull the strongest truthful evidence (tagged bullets, functions performed, day-to-day tasks) for each requirement. Unmatched requirements remain gaps in `application-notes.md`.
+  5. **Rebuild each role around the target job**: keep the real title, employer and dates; optionally add the target function in brackets (`Founder (Business Development) — Org`); rewrite the context line and bullets in the posting's vocabulary from recorded master facts only.
+  6. **Draft**: Create `application-notes.md` and renderer-compatible `cv.md` in the posting's language.
+  7. **QA**: Run `skills/job-cv-builder/scripts/qa_check.py cv.md --rules <rules> --master <master>`. It fails on banned terms and on entry titles that differ from the master, and warns on untraceable numbers. Resolve everything.
+  8. **Render and inspect**: Render, verify exactly one A4 page, inspect the preview, and deliver the files. Never apply or submit from this skill.
 
 ---
 
@@ -106,3 +110,8 @@ _Optional single-line italic context describing company focus, product domain, o
 - **Keep personal data local**: All personal records belong in `private/` or the user's chosen folder outside git tracking.
 - **Check for local overrides**: If `private/` contains custom instructions (e.g. `private/*-rules.md`) or an existing master CV, respect them as primary context.
 - **Never commit personal information**: Never commit personal `.md`, `.docx`, `.pdf`, or applications to git. Only generic skills and fictional examples belong in version control.
+
+## Examples and account-level automation
+
+- `examples/README.md` gives the reading order for two fully fictional personas, including rules, QA cases, a tracker, and Spanish tailoring.
+- `GROKBOT.md` covers audit-first onboarding and supervised application workflows for a new job-search bot, for any field, country and language. It does not expand the job-cv-builder skill's authority to apply.
