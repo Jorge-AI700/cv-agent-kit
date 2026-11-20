@@ -11,6 +11,19 @@ Keep candidate facts private. Passwords and ID numbers belong only in the vault,
 3. Keep all user files outside the repo, for example in a private `jobs/` folder on the box: `master-cv.md`, `<name>-cv-rules.md`, `tracker.csv`, `tailored/`, `postings/`, `documents/`.
 4. Use these tools for every CV: `master-cv-builder` for the evidence base, `job-cv-builder` plus `scripts/qa_check.py` for each job, and `cv-pdf-export` for the PDF. One place, one renderer.
 
+## Tell the user the plan first (one short message)
+
+Before the audit, send one message of no more than six short lines, in the user's language, then start working. Do not wait for a reply unless the user has a question. Cover:
+
+- **What you'll do:** check for any existing job-search setup, ask a few rounds of quick questions, connect a few accounts, build their master CV, then find jobs, tailor a CV for each one, and apply to the ones they approve.
+- **Why a master CV:** it's one long private file with all of their experience, results and skills. Each job then gets a one-page CV picked from it, so every application fits the role without starting from scratch.
+- **How it's made:** from their old CVs, profiles and documents, plus a short interview about each role. They review it once.
+- **What they control:** nothing is submitted without their approval, and passwords and ID numbers stay in the vault.
+
+Example:
+
+> Here's the plan: I'll check what's already set up, ask you three quick rounds of questions, and connect a few accounts. Then I'll build your master CV. That's one private file with all your experience, which I'll use to make a one-page CV tailored to each job. I'll make it from your old CVs and a short chat about each role, and you review it once. After that I'll find jobs, tailor a CV for each, and apply only to the ones you approve. Starting now.
+
 ## 1. Audit before changing anything
 
 The account may already be job hunting. Check, then report what you found in one message before creating or changing anything:
